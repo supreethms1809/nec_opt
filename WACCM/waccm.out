@@ -1,0 +1,56 @@
+Currently Loaded Modulefiles:
+  1) pgi/17.5           2) openmpi_ib/1.8.4   3) gnutools/2.69
+ 
+ ***************** Verification against '../data/imp_sol.1.0' *****************
+ vmr is NOT IDENTICAL(within tolerance).
+ 
+ Number of verified variables:             1
+ Number of identical variables:             0
+ Number of non-identical variables within tolerance:             1
+ Number of non-identical variables out of tolerance:             0
+ Tolerance:    9.9999998245167004E-015
+ 
+ Verification PASSED
+ 
+ 
+ ***************** Verification against '../data/imp_sol.48.0' *****************
+ vmr is NOT IDENTICAL(within tolerance).
+ 
+ Number of verified variables:             1
+ Number of identical variables:             0
+ Number of non-identical variables within tolerance:             1
+ Number of non-identical variables out of tolerance:             0
+ Tolerance:    9.9999998245167004E-015
+ 
+ Verification PASSED
+ 
+ 
+ ***************** Verification against '../data/imp_sol.1.60' *****************
+ vmr is NOT IDENTICAL(within tolerance).
+ 
+ Number of verified variables:             1
+ Number of identical variables:             0
+ Number of non-identical variables within tolerance:             1
+ Number of non-identical variables out of tolerance:             0
+ Tolerance:    9.9999998245167004E-015
+ 
+ Verification PASSED
+ 
+ 
+ ***************** Verification against '../data/imp_sol.48.60' *****************
+ vmr is NOT IDENTICAL(within tolerance).
+ 
+ Number of verified variables:             1
+ Number of identical variables:             0
+ Number of non-identical variables within tolerance:             1
+ Number of non-identical variables out of tolerance:             0
+ Tolerance:    9.9999998245167004E-015
+ 
+ Verification PASSED
+ 
+ 
+ ******************************************************************************
+ imp_sol summary: Total number of verification cases:             4
+ imp_sol summary: # ranks:             1  Avg call time (usec):  
+    47838.14    
+ ******************************************************************************

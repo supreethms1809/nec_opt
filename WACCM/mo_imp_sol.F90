@@ -69,6 +69,7 @@
           USE mo_lu_solve, ONLY: lu_slv
           USE mo_prod_loss, ONLY: imp_prod_loss, imp_prod_loss_blk
           USE mo_indprd, ONLY: indprd
+          USE openacc
 
       implicit none
 
@@ -141,7 +142,7 @@ chnkpnts_loop : &
       do 
          ofu = min( chnkpnts,ofl + veclen - 1 )
          avec_len = (ofu - ofl) + 1
-!         write(*,*) 'avec_len = ',avec_len, ofl, ofu
+         !write(*,*) 'avec_len = ',avec_len, ofl, ofu
 
 !         sys_jac_blk = 0._r8
 !         lin_jac_blk = 0._r8
@@ -165,12 +166,14 @@ chnkpnts_loop : &
          het_rates_blk(1:avec_len,:) = het_rates_full(ofl:ofu,:)
          ind_prd_blk(1:avec_len,:) = ind_prd_full(ofl:ofu,:)
          base_sol_blk(1:avec_len,:) = base_sol_full(ofl:ofu,:)
-
+        !$acc parallel vector_length(64)
+        !$acc loop gang
          do m = 1,gas_pcnst
            do i = 1, avec_len
              sbase_sol_blk(i,m) = base_sol_blk(i,m)
            end do
          end do
+        !$acc end parallel
 !-----------------------------------------------------------------------
 ! ... time step loop
 !-----------------------------------------------------------------------

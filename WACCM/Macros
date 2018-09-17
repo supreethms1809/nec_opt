@@ -52,8 +52,9 @@ endif
 # ********* PGI compiler options  ************
 ifeq ($(COMPILER),pgi)
   FC := pgf90
-  FC_FLAGS += -O3
-  LD_FLAGS += 
+  FC_FLAGS += -acc -g -O3 -Mnofma -Mfree -ta=tesla:cc60,nordc -Minfo=accel 
+#  FC_FLAGS += -O0 -g -Mbounds -Mchkptr -byteswapio -Mfree -Ktrap=divz,fp,inv,ovf -traceback -Mcuda -Mnofma -acc -ta=tesla:cc60 -Minfo=accel
+  LD_FLAGS += -L /share/apps/gpu/pgi/v17.10/linux86-64/17.10/lib/ -laccapimp -laccgmp -laccnmp -laccg2mp -ldl -lcudadevice -lpgmp -lnuma -lpthread -lnspgc -lpgc 
 
 #  FC_FLAGS += -xHost
 endif
