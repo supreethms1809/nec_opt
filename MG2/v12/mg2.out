@@ -1,0 +1,28 @@
+Currently Loaded Modulefiles:
+  1) pgi/17.5           2) openmpi_ib/1.8.4
+rm -f kernel.exe *.mod micro_mg_cam.o micro_mg2_0.o micro_mg_utils.o wv_sat_methods.o shr_spfn_mod.o shr_kind_mod.o shr_const_mod.o kernel_driver.o kgen_utils.o tprof_mod.o *.opt* *.L
+mpif90           -O3 -Mnofma  -D_MPI -c -o kgen_utils.o kgen_utils.f90
+mpif90           -O3 -Mnofma  -D_MPI -c -o tprof_mod.o tprof_mod.f90
+mpif90           -O3 -Mnofma  -D_MPI -c -o shr_kind_mod.o shr_kind_mod.F90
+mpif90           -O3 -Mnofma  -D_MPI -c -o shr_const_mod.o shr_const_mod.F90
+mpif90           -O3 -Mnofma  -D_MPI -c -o shr_spfn_mod.o shr_spfn_mod.F90
+mpif90           -O3 -Mnofma  -D_MPI -c -o micro_mg_utils.o micro_mg_utils.F90
+/tmp/pgf90h0Bdv_R9c8VA.s: Assembler messages:
+/tmp/pgf90h0Bdv_R9c8VA.s:7023: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:9322: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:10288: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:10293: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:10728: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:11153: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:11717: Error: suffix or operands invalid for `vpand'
+/tmp/pgf90h0Bdv_R9c8VA.s:11724: Error: suffix or operands invalid for `vpand'
+make: *** [micro_mg_utils.o] Error 2
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: ./kernel.exe
+Node: comet-34-13
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------

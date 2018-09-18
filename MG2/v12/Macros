@@ -1,7 +1,8 @@
 # Conditional Makefile macros for this kernel & version:
 
 # User settings (all case-insensitive):
-COMPILER = intel       # Intel, GNU, ARM (later, PGI?)
+#COMPILER = intel       # Intel, GNU, ARM (later, PGI?)
+COMPILER = pgi       # Intel, GNU, ARM (later, PGI?)
 ARCH     = bdw         # Not currently used (using xHost/native modes)
 MPI      = yes          # Yes/No, True/False or Enabled/Disabled
 
@@ -45,6 +46,15 @@ endif
 ifeq ($(COMPILER),intel)
   FC := ifort
   FC_FLAGS += -O3 -xCORE-AVX2 -no-fma -ftz -fast-transcendentals -no-prec-sqrt -no-prec-div -qoverride-limits -no-inline-max-total-size -inline-factor=200 -fp-model fast -qopt-report=5
+  LD_FLAGS += 
+
+  FC_FLAGS += 
+endif
+
+# ********* PGI compiler options  ************
+ifeq ($(COMPILER),pgi)
+  FC := pgf90
+  FC_FLAGS += -O3 -Mnofma
   LD_FLAGS += 
 
   FC_FLAGS += 
